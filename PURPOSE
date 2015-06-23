@@ -1,0 +1,3 @@
+PURPOSE of /CoreOS/selinux-change-test.git/Sanity/tests-covering-SELinuxPolicyStoreMigration-change
+Description: tests covering SELinuxPolicyStoreMigration change
+Author: Petr Lautrbach <plautrba@redhat.com>
