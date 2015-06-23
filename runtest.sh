@@ -67,8 +67,7 @@ rlJournalStart
 
 		rlRun prepare_and_run_snapshot
 
-		# uncomment for update from copr plautrba/selinux repo
-		if [ -n "$TEST_SYNC_REPO" ]; then
+		if [ x"$TEST_SYNC_REPO" != x"no" ]; then
 			rlRun "run_remote_command 'mkdir rpms; cd rpms; sudo dnf -y copr enable plautrba/selinux; dnf download --disablerepo=rawhide libselinux libselinux-python libselinux-python3 libselinux-utils libsemanage libsemanage-python libsemanage-python3 libsepol policycoreutils policycoreutils-python policycoreutils-python3 selinux-policy selinux-policy-targeted selinux-policy-minimal selinux-policy-mls'"
 			rlRun "scp -r fedora@$TEST_GUEST:rpms ."
 			rm rpms/*src.rpm; rm rpms/*i686.rpm
@@ -121,7 +120,7 @@ rlJournalStart
 		rlRun delete_snapshot
 		rlRun "virsh shutdown $TEST_GUEST"
 		rlRun "popd"
-		if [ -n "$TEST_SYNC_REPO" ]; then
+		if [ x"$TEST_SYNC_REPO" != x"no" ]; then
 			mv rpms rpms-`date +%y%m%d%H%M%S`
 			cp -r $TmpDir/rpms .
 		fi
