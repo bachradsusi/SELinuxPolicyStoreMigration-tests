@@ -42,6 +42,13 @@ host fedora-cloud
 EOF
 ```
 
+* boot, login and update to Rawhide
+
+```
+$ ssh fedora@fedora-cloud
+fedora-cloud $ sudo dnf update --enablerepo=rawhide
+```
+
 ## run tests
 
 `make run`
