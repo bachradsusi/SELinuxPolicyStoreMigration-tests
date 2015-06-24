@@ -62,7 +62,9 @@ function update_packages() {
 rlJournalStart
 	rlPhaseStartSetup
 		rlRun "TmpDir=\$(mktemp -d)" 0 "Creating tmp directory"
-		rlRun "cp -r rpms $TmpDir/"
+		if [ x"$TEST_SYNC_REPO" = x"no" ]; then
+			rlRun "cp -r rpms $TmpDir/"
+		fi
 		rlRun "pushd $TmpDir"
 
 		rlRun prepare_and_run_snapshot
