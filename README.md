@@ -46,6 +46,7 @@ EOF
 
 ```
 $ ssh fedora@fedora-cloud
+fedora-cloud $ sudo dnf install fedora-repos-rawhide
 fedora-cloud $ sudo dnf update --enablerepo=rawhide
 ```
 
